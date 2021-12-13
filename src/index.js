@@ -1,7 +1,7 @@
 'use strict';
 const { isObjectLiteral } = require('conjunction-junction');
 const deepEqual = require('deep-equal');
-const logger = require('./logger').createLogger('./logs/test.log', 'no-header');
+const logger = require('log123').createLogger('./consolation-test.log', 'no-header');
 
 const describe = (string, fn) => {
   this.describeString = string;

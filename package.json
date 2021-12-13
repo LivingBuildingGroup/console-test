@@ -1,5 +1,5 @@
 {
-  "name": "console-test",
+  "name": "consolation-test",
   "version": "0.1.2",
   "description": "very simple JavaScript testing using console.log",
   "main": "/build/index.js",
