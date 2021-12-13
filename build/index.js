@@ -1,52 +1,54 @@
 'use strict';
 
-var _this = this;
+var _require = require('conjunction-junction'),
+    isObjectLiteral = _require.isObjectLiteral;
 
-const { isObjectLiteral } = require('conjunction-junction');
-const deepEqual = require('deep-equal');
-const logger = require('./logger').createLogger('./logs/test.log', 'no-header');
+var deepEqual = require('deep-equal');
+var logger = require('./logger').createLogger('./logs/test.log', 'no-header');
 
-const describe = (string, fn) => {
-  _this.describeString = string;
+var describe = function describe(string, fn) {
+  undefined.describeString = string;
   fn();
 };
 
-const it = (string, fn) => {
-  _this.itString = string;
+var it = function it(string, fn) {
+  undefined.itString = string;
   fn();
 };
 
-const expect = (actual, logObjects = true) => {
+var expect = function expect(actual) {
+  var logObjects = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
   // logger.info('this.describeString',this.describeString)
   // logger.info('this.itString',this.itString)
   return {
     to: {
-      equal: expected => {
+      equal: function equal(expected) {
         if (actual !== expected) {
-          logger.warn(`\nFAIL > > : "${_this.describeString} / ${_this.itString}", \n        actual: ${actual} does not equal \n        expected: ${expected}`);
+          logger.warn('\nFAIL > > : "' + undefined.describeString + ' / ' + undefined.itString + '", \n        actual: ' + actual + ' does not equal \n        expected: ' + expected);
           return false;
         }
-        logger.info(`        OK (shlw) "${_this.describeString} / ${_this.itString}"`);
+        logger.info('        OK (shlw) "' + undefined.describeString + ' / ' + undefined.itString + '"');
         return true;
       },
       deep: {
-        equal: expected => {
+        equal: function equal(expected) {
           if (actual === expected) {
-            logger.info(`        OK (shlw) "${_this.describeString} / ${_this.itString}"`);
+            logger.info('        OK (shlw) "' + undefined.describeString + ' / ' + undefined.itString + '"');
             return true;
           }
           if (deepEqual(actual, expected)) {
-            logger.info(`        OK (deep) "${_this.describeString} / ${_this.itString}"`);
+            logger.info('        OK (deep) "' + undefined.describeString + ' / ' + undefined.itString + '"');
             return true;
           }
           // fail
-          logger.warn(`\n....FAIL: "${_this.describeString} / ${_this.itString}"`);
-          const logIt = isObjectLiteral(actual) && logObjects || isObjectLiteral(expected) && logObjects || Array.isArray(actual) && logObjects || Array.isArray(expected) && logObjects || actual === null || expected === null || actual === undefined || expected === undefined;
+          logger.warn('\n....FAIL: "' + undefined.describeString + ' / ' + undefined.itString + '"');
+          var logIt = isObjectLiteral(actual) && logObjects || isObjectLiteral(expected) && logObjects || Array.isArray(actual) && logObjects || Array.isArray(expected) && logObjects || actual === null || expected === null || actual === undefined || expected === undefined;
           if (logIt) {
             logger.warn('....ACTUAL:\n', actual);
             logger.warn('....EXPECTED:\n', expected);
           } else {
-            logger.warn(`....actual: ${actual} does not deep equal \n....expected: ${expected}`);
+            logger.warn('....actual: ' + actual + ' does not deep equal \n....expected: ' + expected);
           }
           return false;
         }
@@ -56,9 +58,9 @@ const expect = (actual, logObjects = true) => {
 };
 
 module.exports = {
-  describe,
-  it,
-  expect,
+  describe: describe,
+  it: it,
+  expect: expect,
   testLog: logger
 };
 

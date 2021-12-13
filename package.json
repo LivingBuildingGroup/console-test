@@ -2,9 +2,8 @@
   "name": "console-test",
   "version": "0.1.1",
   "description": "very simple JavaScript testing using console.log",
-  "main": "index.js",
+  "main": "/build/index.js",
   "scripts": {
-    "test": "nyc mocha --colors  tests/*.test.js",
     "build": "babel src -d build"
   },
   "repository": {
