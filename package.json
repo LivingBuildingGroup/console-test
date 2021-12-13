@@ -2,7 +2,7 @@
   "name": "consolation-test",
   "version": "0.1.4",
   "description": "very simple JavaScript testing using console.log",
-  "main": "/build/index.js",
+  "main": "build/index.js",
   "scripts": {
     "build": "babel src -d build"
   },
