@@ -4,7 +4,7 @@ var _require = require('conjunction-junction'),
     isObjectLiteral = _require.isObjectLiteral;
 
 var deepEqual = require('deep-equal');
-var logger = require('./logger').createLogger('./logs/test.log', 'no-header');
+var logger = require('log123').createLogger('./consolation-test.log', 'no-header');
 
 var describe = function describe(string, fn) {
   undefined.describeString = string;
