@@ -2,10 +2,7 @@
   "name": "consolation-test",
   "version": "0.1.5",
   "description": "very simple JavaScript testing using console.log",
-  "main": "build/index.js",
-  "scripts": {
-    "build": "babel src -d build"
-  },
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bradcgarner/console-test.git"
